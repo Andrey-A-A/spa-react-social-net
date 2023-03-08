@@ -1,0 +1,16 @@
+.nav {
+  grid-area: n;
+  background-color: #88bdbc;
+  padding: 20px;
+}
+.item a {
+  color: #112d32;
+  text-decoration: none;
+}
+.item:hover {
+  text-decoration: underline;
+}
+.item a.activeLink {
+  color: #6e6658;
+  font-weight: bold;
+}

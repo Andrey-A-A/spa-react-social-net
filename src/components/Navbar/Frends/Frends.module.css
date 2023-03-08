@@ -1,0 +1,23 @@
+.container {
+  padding: 50px 0 0 0;
+}
+.container h3 {
+  text-align: center;
+  color: #6e6658;
+  font-size: 50px;
+  font-weight: bold;
+}
+.frends {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.frend img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.frend p {
+  text-align: center;
+  color: #4f4a41;
+}
