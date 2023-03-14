@@ -8,22 +8,13 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
-  // if (props.profile.photos === undefined) {
-  //   return <Preloader />;
-  // }
-  // if (Object.keys(props.profile).length === 0) {
-  //   return <Preloader />;
-  // }
-
+  
   return (
     <>
-      {/* <div>
-        <img className={classes.fon} src="/img/network.jpg" alt="" />
-      </div> */}
       <div className={classes.descriptionBlock}>
         <h1>Профиль пользователя {props.profile.fullName}</h1>
         <img src={props.profile.photos.large} alt={props.profile.fullName} />
-        <ProfileStatus status={'Привет друзья!'} />
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
         <div>Коротко обо мне: {props.profile.aboutMe}</div>
         <div>Использую в работе: {props.profile.lookingForAJobDescription}</div>
         <div>

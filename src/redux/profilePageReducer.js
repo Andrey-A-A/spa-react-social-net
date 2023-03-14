@@ -3,6 +3,7 @@ import { profileAPI } from '../api/api';
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
   postData: [
@@ -11,6 +12,7 @@ let initialState = {
   ],
   newPostText: 'Привет лунатикам!',
   profile: null,
+  status: "",
 };
 
 const profilePageReducer = (state = initialState, action) => {
@@ -40,11 +42,18 @@ const profilePageReducer = (state = initialState, action) => {
         profile: action.profile,
       };
 
+    case SET_STATUS:
+      return {
+        ...state,
+        status: action.status,
+      }
+
     default:
       return state;
   }
 };
 
+//Далее описываются функции actionCreator
 export const addPost = () => {
   return {
     type: ADD_POST,
@@ -65,10 +74,31 @@ export const setUserProfile = (profile) => {
   };
 };
 
+export const setStatus = (status) => {
+  return {
+    type: SET_STATUS,
+    status,
+  };
+};
+
 //Далее описываются функции thunk
 export const getUserProfile = (userId) => (dispatch) => {
   return profileAPI.getProfile(userId).then((data) => {
     dispatch(setUserProfile(data));
+  });
+};
+
+export const getStatus = (userId) => (dispatch) => {
+  return profileAPI.getStatus(userId).then((data) => {
+    dispatch(setStatus(data));
+  });
+};
+
+export const updateStatus = (status) => (dispatch) => {
+  return profileAPI.updateStatus(status).then((data) => {
+    if (data.resultCode === 0) {
+      dispatch(setStatus(status));
+    }
   });
 };
 
