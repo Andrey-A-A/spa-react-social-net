@@ -1,4 +1,23 @@
-## Запуск приложения
+## Учебный проект SPA React Social Net
+Проект социальная сеть разработан с целью изучения библиотеки React.
+
+В проекте используются следующие технологии:
+- git
+- css-modules
+- React Router
+- Redux
+- Context API
+- REST API
+- axios
+- Redux Thunk
+- High Order Component
+- local state
+- Redux Form
+- Reselect
+- хуки
+- тестирование Jest
+- React.lazy
+### Запуск приложения
 
 В каталоге проекта вы можете запустить:
 
