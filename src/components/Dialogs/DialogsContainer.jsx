@@ -1,6 +1,5 @@
 import {
   actionCreatorAddMessage,
-  actionCreatorUpdateNewMessageText,
 } from '../../redux/dialogsPageReducer';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux/es/exports';
@@ -16,11 +15,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    updateNewMessageText: (text) => {
-      dispatch(actionCreatorUpdateNewMessageText(text));
-    },
-    addMessage: () => {
-      dispatch(actionCreatorAddMessage());
+    addMessage: (newMessageText) => {
+      dispatch(actionCreatorAddMessage(newMessageText));
     },
   };
 };

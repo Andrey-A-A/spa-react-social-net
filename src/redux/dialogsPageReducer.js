@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD_MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let initialState = {
   messagesData: [
@@ -24,37 +23,23 @@ const dialogsPageReducer = (state = initialState, action) => {
     case ADD_MESSAGE:
       let newMessage = {
         id: 6,
-        message: state.newMessageText,
+        message: action.newMessageText,
         avatar: './img/monkey6.jpg',
         name: 'Веня',
       };
       return {
         ...state,
-        newMessageText: '',
         messagesData: [...state.messagesData, newMessage],
       };
-
-    case UPDATE_NEW_MESSAGE_TEXT:
-      return {
-        ...state,
-        newMessageText: action.newText,
-      };
-
     default:
       return state;
   }
 };
 
-export const actionCreatorAddMessage = () => {
+export const actionCreatorAddMessage = (newMessageText) => {
   return {
     type: ADD_MESSAGE,
-  };
-};
-
-export const actionCreatorUpdateNewMessageText = (text) => {
-  return {
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newText: text,
+    newMessageText
   };
 };
 
